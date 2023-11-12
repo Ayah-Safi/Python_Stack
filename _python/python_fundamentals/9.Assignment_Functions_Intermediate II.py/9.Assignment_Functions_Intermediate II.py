@@ -44,7 +44,37 @@ students = [
 ]
 
 iterateDictionary(students)
+# ------------------------------------------------------------------------------------------------
+#PART3 #PART3 #PART3 #PART3 #PART3 #PART3 #PART3 #PART3 #PART3 #PART3 #PART3 #PART3 #PART3 #PART3
+# -------------------------------------------------------------------------------------------------
+def itesrateDictionary2(key_name, some_list):
+    for item in some_list:
+        return(item[key_name])
 
+students = [
+    {'first_name': 'Michael', 'last_name': 'Jordan'},
+    {'first_name': 'John', 'last_name': 'Rosales'},
+    {'first_name': 'Mark', 'last_name': 'Guillen'},
+    {'first_name': 'KB', 'last_name': 'Tonel'}
+]
 
+y = itesrateDictionary2('first_name', students)
+print(y)
 
+#------------------------------------------------------------------------------------------------
+#PART4 #PART4 #PART4 #PART4 #PART4 #PART4 #PART4 #PART4 #PART4 #PART4 #PART4 #PART4 #PART4 #PART4
+# ------------------------------------------------------------------------------------------------
+def printInfo(some_dict):
+    for key, value in some_dict.items():    
+        print(len(value), key)
+        print(sep='/n')
+        for item in value:
+            print(item,end='')
+            print()
+         
 
+dojo = {
+   'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
+   'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
+}
+printInfo(dojo)
