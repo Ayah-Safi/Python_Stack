@@ -6,13 +6,13 @@ app = Flask(__name__)
 def play():
     return render_template('index.html') 
 
-@app.route('/hey/<num>')
-def hey(num):
+@app.route('/boxwithNumber/<num>')
+def boxwithNumber(num):
     num  = int(num)
     return render_template('index2.html',num = num ) 
 
-@app.route('/hello/<num>/<color>')
-def hello(num,color):
+@app.route('/boxwithcolor/<num>/<color>')
+def boxwithcolor(num,color):
     num  = int(num)
     return render_template('index3.html',num = num, color = color )  
     
