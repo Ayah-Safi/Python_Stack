@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 300px;
+            width: 300px;
+            background-color: #9FC5F8;
+            border: 2px solid black; 
+        }
+        body {
+            gap:5px;
+            align-items: center;
+        }
+        </style>
+</head>
+<body>
+    
+    {% for x in range(num): %}
+    <div class = "box"></div>
+    {% endfor %}
+</body>
+</html>

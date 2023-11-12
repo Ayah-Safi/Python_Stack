@@ -1,0 +1,35 @@
+x = [ [5,2,3], [10,8,9] ] 
+for i in range(len(x)):
+    for j in range (len(x[i])):
+          x[i][j]  = 15
+print (x)
+
+#2.Change the last_name of the first student from 'Jordan' to 'Bryant'
+students = [
+     {'first_name':  'Michael', 'last_name' : 'Jordan'},
+     {'first_name' : 'John', 'last_name' : 'Rosales'}
+]
+for i in range(len(students)):
+    for key,value in students[i].items():
+        if value == 'Jordan':
+            students[i]['last_name']  = 'Bryant'
+print(students)
+
+#3In the sports_directory, change 'Messi' to 'Andres'
+sports_directory = {
+    'basketball' : ['Kobe', 'Jordan', 'James', 'Curry'],
+    'soccer' : ['Messi', 'Ronaldo', 'Rooney']
+}
+for i in sports_directory.values():
+    for j in range(len(i)):
+        if i[j] == 'Messi':
+            i[j] = 'Andreas'
+print(sports_directory)
+
+#4.Change the value 20 in z to 30
+z = [ {'x': 10, 'y': 20} ]
+for i in range(len(z)):
+    for key,value in z[i].items():
+        if value == 20:
+            z[i]['y'] = 30    
+print(z)

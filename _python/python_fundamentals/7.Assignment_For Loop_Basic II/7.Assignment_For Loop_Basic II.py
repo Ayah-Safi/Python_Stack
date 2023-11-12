@@ -1,0 +1,153 @@
+#1Biggie Size
+def biggieSize(list):
+    for n in range(len(list)):
+       if(list[n] > 0 ):
+           list[n] =  "big"
+
+    return list
+y  = biggieSize([1,-2,-3,5])
+print(y)
+
+#2Count Positives
+def countPositives(list) :
+    counter = 0
+    for n in range(len(list)):
+        if(list[n]>0):
+            counter += 1
+    list[len(list)-1] = counter
+    return list
+
+y = countPositives([-1,1,1,1])
+print(y)
+
+#3Sum Total
+def sumTotal(list):
+    sum = 0
+    for n in range(len(list)):
+        sum += list[n]
+    return sum
+
+y = sumTotal([1,2,3,4])
+print(y)
+
+#4Average
+def average(list):
+    sum = 0
+    avg = 0
+    for n in range(len(list)):
+        sum += list[n]
+    avg  = sum/len(list)
+    return avg
+
+y  = average([1,2,3,4])
+print(y)
+
+#Length
+def length(list):
+    return len(list)
+y = length([])
+print(y)
+
+#6Minimum
+def minimum(list):
+   if (len(list) == 0):
+    return False
+   else:
+    return min(list)
+# y = minimum([37,2,1,-9])
+y = minimum([])
+print(y)
+
+#7Minimum
+def maximum(list):
+    if (len(list) == 0):
+        return False
+    else:
+        return max(list)
+y = maximum([37,2,1,-9])
+#y = maximum([])
+print(y)
+
+#8Ultimate Analysis
+def ultimateAnalysis(list):
+    dictionary={"sumTotal":sumTotal(list),"average" :average(list), "minimum" : minimum (list), "maximum":maximum (list), "length":length(list)}
+    return(dictionary)
+print(ultimateAnalysis([37,2,1,-9]))
+
+#9Reverse List 
+def reverseList(list):
+    reversedList=[]
+    for x in range(len(list)-1,-1,-1):
+        reversedList.append(list[x])
+    return reversedList
+print(reverseList([37,2,1,-9]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            
+
+
