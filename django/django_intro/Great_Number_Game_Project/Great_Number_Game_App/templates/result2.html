@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment: Great Number Game</title>
+    {% load static %}
+    <link rel="stylesheet"  href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Playfair+Display&family=Quicksand&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h2>Welcome to the Great Number Game!</h2>
+    <form action="/", method="post">
+        {% csrf_token %}
+        <span>I am thinking of a number between 1 and 100</span>
+        <span>Take a guess!</span>
+        <div class="green">{{request.session.random_number}} {{ ans }}
+            <button>Play again!</button>
+        </div>
+    </form>
+</body>
+</html>
+
