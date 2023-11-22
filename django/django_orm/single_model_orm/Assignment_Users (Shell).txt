@@ -1,0 +1,21 @@
+
+\f0\fs24 \cf0 User.objects.create(first_name="Ayah", last_name="Safi", email="ayah@gmail.com",age=30)\
+User.objects.create(first_name="Muna", last_name="Safi", email="Muna@gmail.com",age=28)\
+User.objects.create(first_name="Haya", last_name="Safi", email="Haya@gmail.com",age=26)\
+\
+User.objects.all()\
+\
+User.objects.first()\
+\
+User.objects.last()\
+\
+change_last_name = User.objects.get(id=3)\
+change_last_name.last_name = "Pancakes"\
+change_last_name.save()\
+\
+user_to_delete = User.objects.get(id=2)\
+user_to_delete.delete() \
+\
+User.objects.all().order_by("first_name")\
+User.objects.all().order_by("-first_name")\
+}
