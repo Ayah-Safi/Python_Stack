@@ -2,7 +2,9 @@ from django.shortcuts import render, HttpResponse, redirect
 import random
 
 def index(request):   
-    request.session['random_number'] = random.random() * 100
+    print( request.session['random_number'])
+    if 'random_number' not in request.session:
+        request.session['random_number'] = int(random.random() * 100)
     if request.method == 'POST':
         request.session['number'] = int(request.POST['number'])
         return redirect('/result')

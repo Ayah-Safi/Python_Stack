@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment: Ninja Gold</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class = "main">
+        <div class="section-1">
+            <label for="name">Your Gold:</label>
+            <span>{{gold}}</span>
+        </div>
+        <div class="section-2">
+            <form class="box" action="/process_money" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="which_form" value="farm">
+                <span>Farm</span>
+                <span>(earns 10-20 gold)</span>
+                <button>Find Gold!</button>
+            </form>
+            <form class="box" action="/process_money" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="which_form" value="cave">
+                <span>Cave</span>
+                <span>(earns 10-20 gold)</span>
+                <button>Find Gold!</button>
+            </form>
+            <form class="box" action="/process_money" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="which_form" value="house">
+                <span>House</span>
+                <span>(earns 10-20 gold)</span>
+                <button>Find Gold!</button>
+            </form>
+            <form class="quest-box" action="/process_money" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="which_form" value="quest">
+                <span>Quest</span>
+                <span>(earns/takes<br>0 - 50 gold)</span>
+                <button>Find Gold!</button>
+            </form>
+        </div> 
+        <div class="section-3">
+            <label for="name">Activities:</label>
+            <textarea name="activities" id="activities" cols="120" rows="10">
+                {% for activity in activities %}
+                {{ activity.activity }} {{ activity.time }}
+                {% endfor %}
+            </textarea>
+        </div>
+    </div>  
+</body>
+</html>
