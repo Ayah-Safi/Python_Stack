@@ -1,0 +1,124 @@
+* {
+    padding:0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body .main {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.main .form-section {
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+
+}
+
+.form-section h1 {
+    font-size: 30px;
+    width: 320px;
+    padding: 0px 40px 0px 40px;
+}
+
+.form-section .form-element-div {
+    width: 400px;
+    display: flex;
+    gap:30px;
+}
+
+.form-element-div label {
+    width: 100px;
+    font-size: 15px;
+    margin: 0px;
+    padding: 0px;
+    display: flexbox;
+}
+
+.form-element-div .tittle {
+    width: 250px;
+    font-size: 15px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.form-element-div .description {
+    height: 100px;
+    width: 250px;
+    font-size: 15px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.add-index {
+    width: 146px;
+    border: 2px solid lightslategray;
+    box-shadow: 2px 2px lightslategray;
+    align-self: center;
+    font-size: 14px;
+    text-align: center;
+}
+
+.display_main {
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+   
+}
+
+a {
+    text-decoration: underline;
+}
+
+.display_main .book-id {
+    font-size: 16px;
+}
+
+.display_main .book-desc {
+    font-size: 14px;
+}
+
+ul li {
+   margin-left: 34px;
+}
+.add-author {
+ margin-right: 10px;
+ text-align: center;
+ height: 18px;
+ width: 120px;
+}
+.add-display {
+    height: 18px;
+    width: 40px;
+}
+
+.textareaaddbook{
+    width:246px;
+}
+
+.first_name {
+    width:166px;
+}
+
+.last_name {
+    width:166px;
+}
+
+.notes {
+    height: 120px;
+}
+
+
+
+.add-author {
+    margin-right: 10px;
+    text-align: center;
+    height: 21px;
+    width: 60px;
+    margin-left: 130px;
+}
+
