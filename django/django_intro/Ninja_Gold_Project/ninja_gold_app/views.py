@@ -3,46 +3,48 @@ import random
 from datetime import datetime
 
 def index(request):
-    request.session['gold'] = 0
+    if 'gold' not in request.session:
+        request.session['gold'] = 0
+    if 'activities' not in request.session:
+        activity_dict = {}
+        request.session['activities'] = activity_dict
     return render (request,'index.html')
 
 def earn_gold(request):
     if request.method == 'POST':
-        your_gold = 0
-        activities = []
-
-        if 'gold' in request.session:
-            your_gold = request.session['gold']
-            if 'activities' in request.session:
-                activities = request.session['activities']
-
-        time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
         if request.POST['which_form'] == 'farm':
-            earned_gold = round((random.random() * 10) + 10)
-            your_gold += earned_gold
-            activities.append({'activity':f"You entered a farm and earned {earned_gold} gold.",'time':time})
+            earned_gold = random.randint(10, 20) 
+            request.session['gold'] += earned_gold
+            request.session['activities'][f"You entered a farm and earned {earned_gold} gold."] = 'green'
 
         elif request.POST['which_form'] == 'cave':
-            earned_gold = round((random.random() * 10) + 10)
-            your_gold += earned_gold
-            activities.append({'activity':f"You entered a cave and earned {earned_gold} gold.",'time':time})
-
+            earned_gold = random.randint(10, 20) 
+            request.session['gold'] += earned_gold
+            request.session['activities'][f"You entered a cave and earned {earned_gold} gold."] = 'green'
+        
         elif request.POST['which_form'] == 'house':
-            earned_gold = round((random.random() * 10) + 10)
-            your_gold += earned_gold
-            activities.append({'activity':f"You entered a house and earned {earned_gold} gold.",'time':time})
+            earned_gold = random.randint(10, 20) 
+            request.session['gold'] += earned_gold
+            request.session['activities'][f"You entered a house and earned {earned_gold} gold."] = 'green'
+        
         else:
-            earned_gold = round((random.random() * 10) + 40)
-            your_gold += earned_gold
-            activities.append({'activity':f"You completed a quest and earned {earned_gold} gold.",'time':time})
+            earned_gold = random.randint(-50, 50) 
+            request.session['gold'] += earned_gold
+            if earned_gold > 0:
+                request.session['activities'][f"You entered a quest and earned {earned_gold} gold."] = 'green'
+            else:
+                request.session['activities'][f"You failed a quest and lost {earned_gold} gold."] = 'red'
 
-        request.session['gold'] = your_gold
-        request.session['activities'] = activities
+    print(request.session['activities'])
+    return redirect('/')
 
-        data = {'gold': your_gold, 'activities': activities}
-        return render(request, 'index.html', data)
-            
+def clear_session(request):
+    if request.method == 'POST':
+        if 'gold' in request.session:
+            del request.session['gold']
+        if 'activities' in request.session:
+            del request.session['activities']
+    return redirect('/')
     
     
         

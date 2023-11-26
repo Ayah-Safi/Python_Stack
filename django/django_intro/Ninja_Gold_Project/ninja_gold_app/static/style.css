@@ -60,14 +60,44 @@ body .section-2 {
 
 }
 
-.section-3 textarea {
-    border: 2px black solid;
-}
-
 span {
     font-weight: bold;
 }
 
 label {
     font-weight: bold;
+}
+
+.section-4 {
+    display: flex;
+    justify-content: center;
+}
+
+.reset {
+    margin: 20px;
+    height: fit-content;
+    width: 100px;
+    border: 2px solid black;
+    box-shadow: 2px 2px lightcyan;
+    align-self: center;
+}
+
+.red-text {
+    color: red;
+}
+
+.green-text {
+    color: green;
+}
+
+.your-gold {
+    border: 2px solid black;
+}
+
+.display-area {
+    height: 200px;
+    width: 1360px;
+    border: 2px solid black;
+    overflow: scroll;
+    padding-left: 10px;
 }

@@ -14,7 +14,7 @@
     <div class = "main">
         <div class="section-1">
             <label for="name">Your Gold:</label>
-            <span>{{gold}}</span>
+            <input class ="your-gold" type="text" name="your-gold" value="{{request.session.gold}}">
         </div>
         <div class="section-2">
             <form class="box" action="/process_money" method="post">
@@ -48,11 +48,17 @@
         </div> 
         <div class="section-3">
             <label for="name">Activities:</label>
-            <textarea name="activities" id="activities" cols="120" rows="10">
-                {% for activity in activities %}
-                {{ activity.activity }} {{ activity.time }}
+            <div class="display-area" over>
+                {% for activity, color in request.session.activities.items %}
+                <p class="{{color}}-text">{{ activity }}</p>
                 {% endfor %}
-            </textarea>
+            </div>
+        </div>
+        <div class="section-4">
+            <form action="/clearsession" method="post">
+                {% csrf_token %}
+                <button class="reset" type="submit">Reset</button>
+            </form>
         </div>
     </div>  
 </body>
