@@ -77,25 +77,32 @@
     <div class="main">
         <a id="go-back" href="/shows"> Go back</a>
         <h1>Add a New Show</h1>
+        {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
         <form action="/shows/create" method="post">
             {% csrf_token %}
                 <div class="title box">
                     <label for="title">Title</label>
-                    <input class="title-input" type="text" name="title" id="">
+                    <input class="title-input" type="text" name="title" id="" required>
                 </div>
                 <div class="box two-inputs">
                 <div class="one">
                     <label for="network">Network</label>
-                    <input class="network-input" type="text" name="network" id="">
+                    <input class="network-input" type="text" name="network" id="" required>
                 </div>
                 <div class="two">
                     <label for="date">Release Date</label>
-                    <input class="date-input" type="date" name="date" id="">
+                    <input class="date-input" type="date" name="date" id="" required>
                 </div>
                 </div>
                 <div class="box">
                     <label  for="desc">Description</label>
-                    <textarea class="desc-input" name="desc" id="" cols="30" rows="10"></textarea>
+                    <textarea class="desc-input" name="desc" id="" cols="30" rows="10" required></textarea>
                 </div>
                 <button type="submit">Add</button>
             </form>

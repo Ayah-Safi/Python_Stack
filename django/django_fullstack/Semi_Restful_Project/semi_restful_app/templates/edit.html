@@ -79,36 +79,43 @@
     
     </style>
 </head>
-<body>
-    <div class="main">
-        <a id="go-back" href="/shows"> Go back</a>
-        <h1>Add a New Show</h1>
-        <form action="/shows/create" method="post">
-            {% csrf_token %}
-                <div class="title box">
-                    <label for="title">Title</label>
-                    <input class="title-input" type="text" name="title" id="">
-                </div>
-                <div class="box two-inputs">
-                <div class="one">
-                    <label for="network">Network</label>
-                    <input class="network-input" type="text" name="network" id="">
-                </div>
-                <div class="two">
-                    <label for="date">Release Date</label>
-                    <input class="date-input" type="date" name="date" id="">
-                </div>
-                </div>
-                <div class="box">
-                    <label  for="desc">Description</label>
-                    <textarea class="desc-input" name="desc" id="" cols="30" rows="10"></textarea>
-                </div>
-                <button type="submit">Add</button>
-            </form>
-            <a id="go-to-show" href="/shows/{{ show.id }}">Go to show</a>
-    </div>
-   
-</body>
+    <body>
+        <div class="main">
+            <a id="go-back" href="/shows"> Go back</a>
+            <h1>Add a New Show</h1>
+            {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="/shows/update" method="post">
+                {% csrf_token %}
+                    <input type="hidden" value="{{ show.id }}" name="id">
+                    <div class="title box">
+                        <label for="title">Title</label>
+                        <input class="title-input" type="text" name="title" id="" value="{{show.title}}">
+                    </div>
+                    <div class="box two-inputs">
+                        <div class="one">
+                            <label for="network">Network</label>
+                            <input class="network-input" type="text" name="network" id="" value="{{show.network}}">
+                        </div>
+                        <div class="two">
+                            <label for="date">Release Date</label>
+                            <input class="date-input" type="date" name="date" id="" value="{{formatted_date}}">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <label  for="desc">Description</label>
+                        <textarea class="desc-input" name="desc" id="" cols="30" rows="10" >{{show.desc}}</textarea>
+                    </div>
+                    <button type="submit">Update</button>
+                </form>
+                <a id="go-to-show" href="/shows/{{ show.id }}">Go to show</a>
+        </div>
+    </body>
 </html>
 
 
