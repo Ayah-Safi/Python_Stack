@@ -23,7 +23,4 @@ class Show(models.Model):
     updated_at = models.DateTimeField(auto_now_add=True)
     created_at = models.DateTimeField(auto_now_add=True)
     objects = ShowManager()
-    
-    def formatted_updated_at(self):
-        return self.updated_at.strftime('%d %m %y')
 
