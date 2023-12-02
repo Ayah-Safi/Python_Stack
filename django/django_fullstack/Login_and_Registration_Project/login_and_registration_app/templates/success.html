@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Login</title>
+</head>
+<style>
+    h3 {
+        color:green;
+    }
+
+    a {
+        text-decoration: underline;
+        color: blue;
+        margin-left: 90%;
+    }
+</style>
+<body>
+    <a href="{% url 'user_logout' %}">Logout</a>
+    <h1>Success! Welcome, {{first_name}}!</h1>
+    <h3>Successfully Registered ( or logged in)!</h3>
+</body>
+</html>
